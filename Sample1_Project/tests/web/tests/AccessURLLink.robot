@@ -10,7 +10,7 @@ Force Tags  WEB   AccessURL
 As a user , I want to access the folllowing URL Link
     [Tags]   Smoke
      Log To Console    Buhay na ang Common.robot file!
-#    Given   User Access the Google Chrome URL
+    Given   User Access the Google Chrome URL
 #    And
 #    When
 #    Then

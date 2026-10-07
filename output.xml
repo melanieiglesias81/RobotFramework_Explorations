@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.9.6 on darwin)" generated="2026-10-07T09:52:38.036720" rpa="false" schemaversion="5">
+<suite id="s1" name="AccessURLLink" source="/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/tests/AccessURLLink.robot">
+<test id="s1-t1" name="As a user , I want to access the folllowing URL Link" line="10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Buhay na ang Common.robot file!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-10-07T09:52:38.417013" elapsed="0.000721"/>
+</kw>
+<kw name="Given">
+<msg time="2026-10-07T09:52:38.421051" level="FAIL">No keyword with name 'Given' found.</msg>
+<arg>User Access the Google Chrome URL</arg>
+<status status="FAIL" start="2026-10-07T09:52:38.420960" elapsed="0.000178">No keyword with name 'Given' found.</status>
+</kw>
+<tag>AccessURL</tag>
+<tag>Smoke</tag>
+<tag>WEB</tag>
+<status status="FAIL" start="2026-10-07T09:52:38.414715" elapsed="0.006785">No keyword with name 'Given' found.</status>
+</test>
+<status status="FAIL" start="2026-10-07T09:52:38.040680" elapsed="0.381556"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">AccessURL</stat>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+<stat pass="0" fail="1" skip="0">WEB</stat>
+</tag>
+<suite>
+<stat name="AccessURLLink" id="s1" pass="0" fail="1" skip="0">AccessURLLink</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-10-07T09:52:38.096572" level="ERROR">Error in file '/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/config/Browser.robot' on line 2: Non-existing setting 'Library SeleniumLibrary'.</msg>
+<msg time="2026-10-07T09:52:38.096695" level="ERROR">Error in file '/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/config/Browser.robot' on line 3: Non-existing setting 'Library BuiltIn'.</msg>
+<msg time="2026-10-07T09:52:38.096769" level="ERROR">Error in file '/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/config/Browser.robot' on line 4: Non-existing setting 'Resource ./URL.robot'.</msg>
+<msg time="2026-10-07T09:52:38.097569" level="ERROR">Error in file '/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/resources/Common.robot' on line 3: Resource file '../keywords/AccessURLLinkKeywords.robot' does not exist.</msg>
+<msg time="2026-10-07T09:52:38.413790" level="ERROR">Error in file '/Users/admin/Desktop/RobotFramework/RobotFramework_Explorations/Sample1_Project/tests/web/resources/keywords/AccessURLLinkKeywords.robot' on line 7: Variable file '../resources-mapping/AccessURLLinkResourceMapping.py' does not exist.</msg>
+</errors>
+</robot>
