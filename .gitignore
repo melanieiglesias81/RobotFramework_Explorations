@@ -1,0 +1,7 @@
+__pycache__
+log.html
+output.xml
+report.html
+selenium-screenshot-*
+
+.DS_Store
