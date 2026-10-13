@@ -4,7 +4,7 @@ Library    Collections
 Library    SeleniumLibrary
 Resource    ../../config/Browser.robot
 Resource    ../../config/URL.robot
-Variables  ../resources/resource-mapping/LoginResourceMapping.py
+Variables   ../resource-mapping/LoginResourceMapping.py
 
 *** Keywords ***
 the user navigates to the login page

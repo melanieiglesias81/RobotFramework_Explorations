@@ -1,6 +1,6 @@
 *** Settings ***
 Resource   ../config/Browser.robot
-Resource   ../keywords/AccessURLLinkKeywords.robot
+Resource   ./keywords/LoginKeywords.robot
 Library    BuiltIn
 Library    SeleniumLibrary
 
