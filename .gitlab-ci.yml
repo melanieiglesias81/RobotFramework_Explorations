@@ -1,0 +1,82 @@
+## Base Image ##
+image: alpine:3.19
+
+## Stages ##
+stages:
+  - Data Preparation
+  - Test Execution
+  - Clean Up
+
+## Common Variables ##
+variables:
+  WEBSITE:
+    description: Select from the Available features to run automated tests
+    value: "Sample1_Project"
+    options:
+      - "Sample1_Project"
+      - "Sample2_Project"
+  ENV_NO:
+    description: Environment number used to pick env.<ENV_NO>.yaml
+    value: "1"
+  FEATURE:
+    description: Robot Framework tag to run (passed to -i)
+    value: "smoke"
+    options:
+      - "smoke"
+      - "BasicTest"
+      - "Login"
+
+  TEST_PATH: ${WEBSITE}/test/web/tests
+  RESULTS_PATH: ${TEST_PATH}/results
+
+## QA Test Common ##
+.install_package: &install_package
+  before_script:
+    - |
+      apk --quiet --no-cache add \
+        gcc g++ libffi-dev linux-headers musl-dev openssl-dev \
+        jq python3 python3-dev py3-pip curl zip unzip
+
+      apk --quiet --no-cache upgrade
+      apk --quiet --no-cache add chromium chromium-chromedriver
+
+      pip3 install --upgrade pip
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir requests==2.26.0
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir urllib3==1.26.20
+
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework==7.0.1
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-seleniumlibrary==5.1.3
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-sshlibrary==3.8.0
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir selenium==4.9.0
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-databaselibrary==2.0.4
+
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-datadriver==1.11.2
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir pymysql
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir pyyaml
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-faker==5.0.0
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir robotframework-requests==0.9.7
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir axe-selenium-python==2.1.6
+      pip3 install --root-user-action=ignore --quiet --no-cache-dir python-dateutil
+
+.test_common: &test_common
+  artifacts:
+    when: always
+    paths:
+      - ${RESULTS_PATH}
+    expire_in: 1 week
+
+.singlefeatures_common: &singlefeatures_common
+  script:
+    - |
+      echo -e "\e[34m=======================================================\e[0m"
+      echo -e "Executing Test"
+
+      robot -V ${TEST_PATH}
+## robot -V env.${ENV_NO}.yaml -d ${RESULTS_PATH} -i ${FEATURE} ${TEST_PATH} ##
+## python3 -m robot Sample1_Project/tests/web/tests/BasicTest.robot ##
+
+
+## Jobs ##
+run_tests:
+  stage: Test Execution
+  <<: [*install_package, *test_common, *singlefeatures_common]
