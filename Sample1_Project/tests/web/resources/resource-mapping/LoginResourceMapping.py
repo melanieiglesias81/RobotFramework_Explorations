@@ -1,6 +1,6 @@
 PAGE_LOGIN = {
     "LOGIN_PAGE":{
-        "TEXTFIELD_USERNAME": "css:id:user-name",
+        "TEXTFIELD_USERNAME": "id:user-name",
     }
 
 }

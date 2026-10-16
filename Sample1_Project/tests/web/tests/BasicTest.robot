@@ -4,6 +4,8 @@
 Documentation     A basic example test suite for login functionality.
 Library           SeleniumLibrary
 
+Test Tags    BasicTest
+
 *** Variables ***
 ${LOGIN_URL}      https://www.saucedemo.com
 ${BROWSER}        chrome

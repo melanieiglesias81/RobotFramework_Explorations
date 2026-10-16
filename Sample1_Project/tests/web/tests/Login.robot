@@ -2,12 +2,15 @@
 
 *** Settings ***
 
+
 Library    SeleniumLibrary
 
 Resource   ../resources/Common.robot
 Resource    ../config/Browser.robot
 Resource    ../config/URL.robot
 Resource   ../resources/keywords/LoginKeywords.robot
+
+Test Tags    Login
 
 
 *** Test Cases ***

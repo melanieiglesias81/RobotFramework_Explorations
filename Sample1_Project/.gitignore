@@ -4,4 +4,6 @@ output.xml
 report.html
 selenium-screenshot-*
 
+.idea/
+
 .DS_Store

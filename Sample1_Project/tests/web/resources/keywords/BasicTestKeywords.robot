@@ -3,12 +3,14 @@
 Library    SeleniumLibrary
 Resource    ../../config/Browser.robot
 Resource    ../../config/URL.robot
+Resource    ../resources/keywords/BrowserKeywords.robot
 Variables    ../resources-mapping/AccessURLLinkResourceMapping.py
 
 *** Keywords ***
 
 the user navigates to the login page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}
+    Open Browser Headless ${LOGIN_URL}    ${BROWSER}
+#    Open Browser    ${LOGIN_URL}    ${BROWSER}
     Maximize Browser Window
     Title Should Be    Swag Labs
 
